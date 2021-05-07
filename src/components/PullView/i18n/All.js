@@ -5,8 +5,8 @@ export default {
         pullrelease: "refreshing......"
     },
     "zh_CN": {
-        pulling: "下拉刷新...",
-        pullok: "松开刷新......",
-        pullrelease: "玩命刷新中......"
+        pulling: "Pull down to refresh...",
+        pullok: "Release to refresh......",
+        pullrelease: "Refreshing......"
     }
 }

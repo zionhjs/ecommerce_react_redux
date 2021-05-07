@@ -55,9 +55,9 @@ Demo3:
     </PullView>
 */
 
-const pullOkMargin = 100; //下拉到ok状态时topindicator距离顶部的距离
+const pullOkMargin = 100; //The distance between the topindicator and the top when it is pulled down to the ok state
 const defaultDuration = 300;
-const defaultTopIndicatorHeight = 60; //顶部刷新指示器的高度
+const defaultTopIndicatorHeight = 60; //The height of the top refresh indicator
 const defaultFlag = {pulling: false, pullok: false, pullrelease: false};
 const flagPulling = {pulling: true, pullok: false, pullrelease: false};
 const flagPullok = {pulling: false, pullok: true, pullrelease: false};
@@ -124,7 +124,7 @@ export default class PullView extends Component{
 
     onPanResponderMove(e, gesture) {
         this.gesturePosition = {x: this.defaultXY.x, y: gesture.dy};
-        if (isUpGesture(gesture.dx, gesture.dy)) { //向上滑动
+        if (isUpGesture(gesture.dx, gesture.dy)) { //Swipe up
             if(this.isPullState()) {
                 this.resetDefaultXYHandler();
             } else if(this.props.onPushing && this.props.onPushing(this.gesturePosition)) {
@@ -133,10 +133,10 @@ export default class PullView extends Component{
                 this.scroll.scrollTo({x:0, y: gesture.dy * -1});
             }
             return;
-        } else if (isDownGesture(gesture.dx, gesture.dy)) { //下拉
+        } else if (isDownGesture(gesture.dx, gesture.dy)) { //pulling donw
             this.state.pullPan.setValue({x: this.defaultXY.x, y: this.lastY + gesture.dy / 2});
             DeviceEventEmitter.emit('moveDownReleaseHomeHeader', gesture.dy)
-            if (gesture.dy < this.topIndicatorHeight + this.pullOkMargin) { //正在下拉
+            if (gesture.dy < this.topIndicatorHeight + this.pullOkMargin) { //Pulling down
                 if (!this.flag.pulling) {
                     this.props.onPulling && this.props.onPulling();
                 }
@@ -151,8 +151,8 @@ export default class PullView extends Component{
     }
 
     onPanResponderRelease(e, gesture) {
-        if (this.flag.pulling) { //没有下拉到位
-            this.resetDefaultXYHandler(); //重置状态
+        if (this.flag.pulling) { //Not pulled down in place
+            this.resetDefaultXYHandler(); //Reset state
         }
         if (this.flag.pullok) {
             if (!this.flag.pullrelease) {
@@ -163,7 +163,7 @@ export default class PullView extends Component{
                 }
             }
             this.setState({ scrollEnabled: true })
-            this.setFlag(flagPullrelease); //完成下拉，已松开
+            this.setFlag(flagPullrelease); //Pull down completed, released
             DeviceEventEmitter.emit('moveDownHomeHeader', 170)
             Animated.timing(this.state.pullPan, {
                 toValue: {x: 0, y: 0},
@@ -186,7 +186,7 @@ export default class PullView extends Component{
 
     /** 数据加载完成后调用此方法进行重置归位 */
     resolveHandler() {
-        if (this.flag.pullrelease) { //仅触摸松开时才触发
+        if (this.flag.pullrelease) { //Only trigger when the touch is released
             this.setState({ scrollEnabled: false })
             this.resetDefaultXYHandler();
         }
