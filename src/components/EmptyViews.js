@@ -10,21 +10,21 @@ import {
   View
 } from 'react-native'
 
-//  暂无数据
+//  no data
 const empty_data = require('../images/icon-empty-data.png')
-//  订单列表为空
+//  order empty
 const empty_order = require('../images/icon-empty-order.png')
-//  优惠券列表为空
+//  coupon non
 const empty_bonus = require('../images/icon-empty-bonus.png')
-//  地址列表为空
+//  address empty
 const empty_address = require('../images/icon-empty-address.png')
-//  暂无图片
+//  no pics
 const empty_image = require('../images/icon-empty-image.png')
-// 评论为空
+// comments empty
 const empty_comment = require('../images/icon-empty-comment.png')
 
 /**
- * 暂无数据
+ * no-data
  * @param params
  * @returns {XML}
  * @constructor
@@ -34,7 +34,7 @@ export function DataEmpty(params : Object) {
 }
 
 /**
- * 订单列表
+ * oder-list
  * @param params
  * @returns {XML}
  * @constructor
@@ -44,7 +44,7 @@ export function OrderEmpty(params : Object) {
 }
 
 /**
- * 商品
+ * products
  * @param params
  * @returns {XML}
  * @constructor
@@ -54,7 +54,7 @@ export function GoodsEmpty(params : Object) {
 }
 
 /**
- * 收藏商品
+ * saved product
  * @param params
  * @returns {XML}
  * @constructor
@@ -64,7 +64,7 @@ export function MyCollectionGoodsEmpty(params : Object) {
 }
 
 /**
- * 收藏店铺
+ * saved shops
  * @param params
  * @returns {XML}
  * @constructor
@@ -74,7 +74,7 @@ export function MyCollectionShopEmpty(params : Object) {
 }
 
 /**
- * 售后列表
+ * after sales
  * @param params
  * @returns {XML}
  * @constructor
@@ -84,7 +84,7 @@ export function RefundEmpty(params : Object) {
 }
 
 /**
- * 优惠券
+ * coupon
  * @param params
  * @returns {XML}
  * @constructor
@@ -94,7 +94,7 @@ export function BonusEmpty(params : Object) {
 }
 
 /**
- * 地址
+ * address
  * @param params
  * @returns {XML}
  * @constructor
@@ -104,7 +104,7 @@ export function AddressEmpty(params : Object) {
 }
 
 /**
- * 评论
+ * comments
  * @param params
  * @returns {XML}
  * @constructor
@@ -114,7 +114,7 @@ export function CommentEmpty(params : Object) {
 }
 
 /**
- * 图片
+ * picture
  * @param params
  * @returns {XML}
  * @constructor
@@ -124,7 +124,7 @@ export function ImageEmpty(params : Object) {
 }
 
 /**
- * 公共View
+ * Public View
  * @param module
  * @param _text
  * @param style
