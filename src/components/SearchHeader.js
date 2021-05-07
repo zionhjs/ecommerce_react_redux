@@ -1,6 +1,6 @@
 /**
  * Created by Andste on 2017/4/22.
- * 首页搜索栏
+ * home page search area
  */
 import React, { PureComponent } from 'react'
 import {

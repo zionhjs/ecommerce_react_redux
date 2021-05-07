@@ -26,12 +26,12 @@ const shareBtnHeight = isIphoneX() ? 60 : 50
 const animateDuration = 200
 
 const shares = [
-  { title: '新浪微博', key: 'weibo', icon: require('../images/icon-share-sina.png') },
-  { title: '微信', key: 'wechat', icon: require('../images/icon-share-wechat.png') },
-  { title: '微信朋友圈', key: 'wechat_timeline', icon: require('../images/icon-share-wechat-timeline.png') },
-  { title: '微信收藏', key: 'wechat_favorite', icon: require('../images/icon-share-wechat-favorite.png') },
+  { title: 'Sina Weibo', key: 'weibo', icon: require('../images/icon-share-sina.png') },
+  { title: 'Wechat', key: 'wechat', icon: require('../images/icon-share-wechat.png') },
+  { title: 'Wechat Friend Circle', key: 'wechat_timeline', icon: require('../images/icon-share-wechat-timeline.png') },
+  { title: 'Wechat Saves', key: 'wechat_favorite', icon: require('../images/icon-share-wechat-favorite.png') },
   { title: 'QQ', key: 'qq', icon: require('../images/icon-share-qq.png') },
-  { title: 'QQ空间', key: 'qzone', icon: require('../images/icon-share-qzone.png') },
+  { title: 'QQ Zone', key: 'qzone', icon: require('../images/icon-share-qzone.png') },
   // { title: '支付宝', key: 'alipay', icon: require('../images/icon-share-alipay.png') }
 ]
 
@@ -43,7 +43,7 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 打开模态框
+   * open modal
    */
   open = async () => {
     await this.setState({ visible: true })
@@ -54,7 +54,7 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 关闭模态框
+   * close modal
    * @returns {Promise<any> | Promise<*>}
    */
   close = () => {
@@ -71,7 +71,7 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 分享成功
+   * share success
    * @private
    */
   _onShareSuccess = async (msg = '分享成功！') => {
@@ -80,7 +80,7 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 分享失败
+   * share failed
    * @returns {Promise<void>}
    * @private
    */
@@ -90,7 +90,7 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 点击分享
+   * click share
    * @private
    */
   _onPress = async (item) => {
@@ -120,7 +120,7 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 微博分享
+   * weibo share
    * @private
    */
   _shareByWeibo = async () => {
@@ -138,14 +138,14 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 分享到微信
+   * share to wechat
    * @returns {Promise<void>}
    * @private
    */
   _shareByWechat = async () => {
     const { data } = this.props
     if (!await Wechat.isWXAppInstalled()) {
-      await this._onShareError('未安装微信！')
+      await this._onShareError('wechat not installed')
       return
     }
     try {
@@ -160,14 +160,14 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 分享到微信朋友圈
+   * share to wechat feeds
    * @returns {Promise<void>}
    * @private
    */
   _shareByWechatTimeline = async () => {
     const { data } = this.props
     if (!await Wechat.isWXAppInstalled()) {
-      await this._onShareError('未安装微信！')
+      await this._onShareError('wechat not installed')
       return
     }
     try {
@@ -182,14 +182,14 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 分享到微信收藏
+   * share to wechat save
    * @returns {Promise<void>}
    * @private
    */
   _shareByWechatFavorite = async () => {
     const { data } = this.props
     if (!await Wechat.isWXAppInstalled()) {
-      await this._onShareError('未安装微信！')
+      await this._onShareError('wechat not installed')
       return
     }
     try {
@@ -197,14 +197,14 @@ export default class ShareActionSheet extends PureComponent {
         ...data,
         thumbImage: data['imageUrl']
       })
-      await this._onShareSuccess('收藏成功！')
+      await this._onShareSuccess('save success')
     } catch (e) {
-      await this._onShareError('收藏失败！')
+      await this._onShareError('save failed！')
     }
   }
   
   /**
-   * 分享到QQ
+   * share to QQ
    * @returns {Promise<void>}
    * @private
    */
@@ -213,7 +213,7 @@ export default class ShareActionSheet extends PureComponent {
     try {
       await QQAPI.isQQInstalled()
     } catch (e) {
-      await this._onShareError('未安装QQ！')
+      await this._onShareError('QQ not installed！')
       return
     }
     try {
@@ -225,7 +225,7 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 分享到QQ空间
+   * share to QQ zone
    * @returns {Promise<void>}
    * @private
    */
@@ -234,7 +234,7 @@ export default class ShareActionSheet extends PureComponent {
     try {
       await QQAPI.isQQInstalled()
     } catch (e) {
-      await this._onShareError('未安装QQ！')
+      await this._onShareError('QQ not installed')
       return
     }
     try {
@@ -246,7 +246,7 @@ export default class ShareActionSheet extends PureComponent {
   }
   
   /**
-   * 分享到支付宝
+   * share to AliPay
    * @returns {Promise<void>}
    * @private
    */

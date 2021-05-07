@@ -1,7 +1,7 @@
 /**
  * Created by Andste on 2017/7/21.
- * 搜索栏
- * 首页、分类共用
+ * search bar
+ * home share
  */
 import React, { PureComponent } from 'react'
 import {

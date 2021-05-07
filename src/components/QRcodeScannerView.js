@@ -34,7 +34,7 @@ export default class QRcodeScannerView extends PureComponent {
     if (!event.data) returnStatement
     let execStr = /goods\/(\d+)/g.exec(event.data)
     if (!execStr || execStr.length < 2) {
-      alert('二维码没有包含商品ID标识，请重新扫描！')
+      alert('The QR code does not contain the product ID, please scan again')
       return
     }
     let _id = execStr[1]
